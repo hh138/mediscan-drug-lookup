@@ -1,0 +1,5 @@
+{
+  "name": "MediScan 药品查询系统",
+  "description": "专为微信扫码设计的移动端医院药品查询系统，支持AI智能症状搜索。",
+  "requestFramePermissions": []
+}
