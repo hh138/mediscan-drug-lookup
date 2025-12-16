@@ -2,8 +2,8 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { MOCK_INVENTORY } from '../constants';
 import { Medicine } from '../types';
 
-// Initialize Gemini Client
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const apiKey = process.env.API_KEY as string | undefined;
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 /**
  * Uses Gemini to interpret a user's natural language query (which might be symptoms)
@@ -11,6 +11,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
  */
 export const searchInventoryWithAI = async (userQuery: string): Promise<string[]> => {
   try {
+    if (!ai) return [];
     // We provide a simplified version of the inventory to the model to save tokens/latency
     const inventoryContext = MOCK_INVENTORY.map(m => 
       `ID: ${m.id}, 名称: ${m.name} (厂商: ${m.brandName}), 分类: ${m.category}, 描述: ${m.description}`
