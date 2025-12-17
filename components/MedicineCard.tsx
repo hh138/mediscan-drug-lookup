@@ -10,7 +10,7 @@ export const MedicineCard: React.FC<MedicineCardProps> = ({ medicine }) => {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-shadow duration-200">
       <div className="p-4">
-        <div className="flex justify-between items-start mb-2">
+        <div className="flex justify-start items-start mb-2">
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               {/* 优先显示通用名 (Generic Name) - 大标题 */}
@@ -27,13 +27,10 @@ export const MedicineCard: React.FC<MedicineCardProps> = ({ medicine }) => {
               )}
             </div>
             {/* 商品名/厂商名作为副标题显示 - 小标题 */}
-            <p className="text-sm text-slate-500 font-medium mt-0.5">
-              厂商: <span className="text-slate-700">{medicine.brandName}</span>
-            </p>
-          </div>
-          <div className="text-right shrink-0 ml-2">
-             <span className="block text-lg font-bold text-teal-600">¥{medicine.price.toFixed(2)}</span>
-          </div>
+              <p className="text-sm text-slate-500 font-medium mt-0.5">
+                厂商: <span className="text-slate-700">{medicine.brandName}</span>
+              </p>
+            </div>
         </div>
 
         <p className="text-sm text-slate-600 mb-4 line-clamp-2">{medicine.description}</p>
