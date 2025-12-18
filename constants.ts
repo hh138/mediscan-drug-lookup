@@ -1,6 +1,6 @@
 import { Medicine, Category } from './types';
 
-export const HOSPITAL_NAME = "叙永安民医院";
+export const HOSPITAL_NAME = "原研药目录";
 
 export const MOCK_INVENTORY: Medicine[] = [
   // 心血管药
